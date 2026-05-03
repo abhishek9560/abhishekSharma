@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Application_login</title>
+    
     <style>
+        
         * {
             margin: 0;
             padding: 0;
         }
-
+        
         header {
             width: 100%;
             height: 100vh;
             background-size: cover;
             background-position: center;
             background-image: url(https://img.freepik.com/premium-photo/back-school-school-building_899145-17962.jpg?ga=GA1.1.1221565113.1776769732&amp;semt=ais_hybrid&amp;w=740&amp;q=80);
-        }
-
+        } 
+        
         main {
             width: 100%;
             height: 100%;
@@ -168,24 +172,33 @@
         }
     </style>
 </head>
-
 <body>
+    
     <header>
+        
         <main>
+            
             <h4 class="H4_title">International College Portal</h4>
+            
             <div class="heading">
+                
                 <div>
+                    
                     <h4 class="H4_student">STUDENT LOGIN</h4>
                 </div>
+                
                 <div style="text-align: center;">
+                    
                     <h4 class="label">Enter The Mobile No Or Email Provide The <p
                             style="display: inline-block; color: yellow;">
                             Registration Form</p> !</h4>
+                    
                     <input id="Mobile_Email" type="text" placeholder="Mobile Number / Email ID" class="input_login">
                     <h4 class="label">Enter Password ( यहाँ नीचे भरें ! )</h4>
+                    
                     <input type="text" id="Password_login" class="input_login" placeholder="Enter Password"
                         style="margin-top: 5px;">
-
+                    
                     <!-- Captcha System Code -->
                     <div class="input_login" style="display: flex; position: relative; left: 10.5px;">
                         <div id="captcha" class="div_01" style="width: 80%;"></div>
@@ -285,7 +298,5 @@
 
     </script>
 </body>
-
 </html>
-
 <!-- ID bhi localstroage me save kar diya hai name hai :- "ID_In" -->
