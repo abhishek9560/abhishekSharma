@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application_02</title>
+
+    <!-- CSS STATEMENT :- -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: lightgray;
+        }
+
+
+        header {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: lightgray;
+        }
+
+        .div_review {
+            width: 95%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            row-gap: 12px;
+            background-color: white;
+            border: 1px solid lightgray;
+        }
+
+        .div_review_01 {
+            height: 32%;
+            display: flex;
+            justify-content: center;
+        }
+
+        ._01_div {
+            width: 35%;
+            height: 100%;
+        }
+
+        .para_graph_01 {
+            width: 90%;
+            height: 35px;
+            padding: 12px 0 0 0;
+            margin-left: 12px;
+            line-height: 35px;
+            letter-spacing: 0.8px;
+            font-family: fantasy;
+        }
+
+        .Date_para_graph {
+            width: 95%;
+            height: 26px;
+            line-height: 25.6px;
+            text-align: center;
+            border-radius: 10px;
+            margin-left: 3px;
+            box-shadow: 3px 6px 12px 0px #000000c7;
+        }
+
+        #image {
+            object-fit: cover;
+            margin: 6px 5px 0;
+            border-radius: 20px;
+            box-sizing: border-box;
+            border: 2px solid aqua;
+            object-position: 0 -20px;
+        }
+
+        .question {
+            font-size: 22px;
+            width: 37%;
+            padding-left: 5.5px;
+            font-weight: bolder;
+            text-align: center;
+        }
+
+        .answer {
+            width: 78%;
+            font-weight: 400;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-transform: uppercase;
+            padding-right: 10px;
+        }
+
+        .answer_02 {
+            width: 96%;
+            border: none;
+            padding-left: 8px;
+            text-align: start;
+            height: 100%;
+            font-size: 20px;
+            white-space: nowrap;
+            scrollbar-width: none;
+            text-transform: capitalize;
+        }
+
+        ._05_details_section {
+            display: flex;
+            margin-top: 6px;
+            height: fit-content;
+        }
+
+        .box_image {
+            overflow: hidden;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .picture_photo {
+            position: relative;
+            animation: upOut 2.5s ease-out forwards;
+        }
+
+        @keyframes upOut {
+            from {
+                bottom: -100%;
+                opacity: 1;
+            }
+
+            to {
+                bottom: -5px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes showin {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        ._05_details_Button_section {
+            width: 100%;
+            height: 12%;
+            display: flex;
+            margin-top: 3px;
+            align-items: center;
+            background: aqua;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .user_ID {
+            font-size: 17px;
+            margin-left: 15px;
+            font-weight: 500;
+            font-family: system-ui;
+        }
+
+        .Button_ID_Pass {
+            line-height: 18px;
+            padding: 4px;
+            margin-left: 30px;
+            box-sizing: border-box;
+            border: 2.5px solid black;
+            outline: none;
+            text-align: center;
+            width: 80px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-family: fantasy;
+            color: black;
+            cursor: pointer;
+            border-radius: 50px;
+            background-color: white;
+        }
+
+        .views {
+            width: 100%;
+            height: 100vh;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .userID_Pass_show {
+            width: 85%;
+            border-radius: 25px;
+            background-color: white;
+            box-shadow: 6px 6px 15px -4px black;
+            /* animation: showin 0s ease; */
+        }
+
+        .h3_styles {
+            width: 100%;
+            background: aqua;
+            font-weight: 600;
+            border-top-right-radius: 25px;
+            border-top-left-radius: 25px;
+            text-align: center;
+            font-family: monospace;
+            padding: 7px 0;
+            font-size: larger;
+            color: #001caf;
+        }
+
+        .h2_userID {
+            text-align: center;
+            padding-top: 8px;
+            color: darkred;
+            font-family: math;
+            text-transform: capitalize;
+        }
+
+        .ID_show {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ID_show p {
+            width: 90%;
+            color: black;
+            padding: 6px 0;
+            font-family: monospace;
+            font-size: larger;
+            font-weight: 800;
+            text-align: center;
+            border-radius: 10px;
+            background-color: lightgray;
+        }
+
+        .New_btn {
+            width: 100%;
+            height: 85px;
+            background: #a9a9a970;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .div_002 {
+            width: 98%;
+            height: 85px;
+            text-align: center;
+        }
+
+        .Button_popup {
+            padding: 8px;
+            border-radius: 20px;
+            font-size: 15px;
+            outline: none;
+            letter-spacing: 1px;
+            width: 150px;
+            font-weight: 800;
+            color: red;
+            border-color: aqua;
+            cursor: grab;
+        }
+
+        .OTR_box {
+            height: 30px;
+            margin-top: 12px;
+            text-align: center;
+            background-color: #a00000;
+        }
+
+        .otr_span {
+            color: white;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-left: 10px;
+            font-size: larger;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<!-- HTML STATEMENT :- -->
+
+<body>
+    <header>
+        <div class="div_review">
+            <div class="div_review_01">
+                <div class="_01_div">
+                    <p class="para_graph_01">DATE :</p>
+                    <p class="Date_para_graph" id="datePara_date" style="font-size: 20px;"></p>
+                    <p class="para_graph_01">TIME :</p>
+                    <p class="Date_para_graph" id="datePara_time" style="font-size: 20px;"></p>
+                </div>
+                <div class="_01_div box_image" style="width: 60%; text-align: end;">
+                    <img id="image" width="165px" height="170px" class="picture_photo">
+                </div>
+            </div>
+            <div class="div_review_01" style="height: 66%; display: block; overflow-y: scroll; overflow-x: hidden;">
+                <div class="_05_details_section" style="margin-top: 10px;">
+                    <h4 class="question">Name :</h4>
+                    <p id="name" class="answer"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">F-Name :</h4>
+                    <p id="father" class="answer" style="width: 70%;"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">M-Name :</h4>
+                    <p id="mother" class="answer" style="width: 70%;"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question" style="text-align: start; padding-left: 12px; width: 42%;">E-mail ID :</h4>
+                    <p id="e-Email" class="answer"
+                        style="font-size: 20px; text-transform: lowercase; padding-top: 5px; word-break: break-all;">
+                    </p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">Mobile No :</h4>
+                    <p id="mobile" class="answer" style="width: 66%;"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">Gender :</h4>
+                    <p id="Gender" class="answer" style="width: 72%;"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">DOB :</h4>
+                    <p id="DOB" class="answer" style="width: 72%;"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question" style="width: 44%;">Aadhaar No :</h4>
+                    <p id="ADUS" class="answer" style="width: 64%;"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">Age :</h4>
+                    <p id="age" class="answer" style="width: 64%;"></p>
+                </div>
+                <div class="_05_details_section" style="height: 30px !important;">
+                    <h4 class="question" style="width: 37%; height: fit-content;">Address :</h4>
+                    <div class="answer"
+                        style="display: block; width: 75%; overflow-y: clip; overflow-x: scroll; scrollbar-width: none;">
+                        <textarea id="address" class="answer_02" oninput="autoResize(this)"></textarea>
+                    </div>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">S/C Name :</h4>
+                    <p id="sc-name" class="answer" style="width: 67%; font-size: 20px;"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">Roll No :</h4>
+                    <p id="r-number" class="answer" style="width: 67%; font-size: 20px;"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">Roll Code :</h4>
+                    <p id="Roll-code" class="answer" style="width: 67%; font-size: 20px;"></p>
+                </div>
+                <div class="_05_details_section">
+                    <h4 class="question">Class :</h4>
+                    <p id="class" class="answer"></p>
+                </div>
+                <div class="_05_details_Button_section">
+                    <p class="user_ID">User ID And Password :</p>
+                    <div class="Button_ID_Pass" id="button_view">SHOW</div>
+                </div>
+                <div class="views" id="views">
+                    <div class="userID_Pass_show">
+                        <div>
+                            <h3 class="h3_styles">Student ID And Password :<br>
+                                <p style="font-size: 17.5px; color: black;">(छात्र आईडी और पासवर्ड)
+                                </p>
+                            </h3>
+                        </div>
+                        <div>
+                            <!-- student ka id hai ye... -->
+                            <h2 class="h2_userID">user ID :</h2>
+                            <span class="ID_show">
+                                <p id="ID"></p>
+                            </span>
+                            <div class="OTR_box">
+                                <span class="otr_span">OTR NO :</span>
+                                <span class="otr_span" id="OTR_span_box" style="margin-left: 5px;"></span>
+                            </div>
+                            <!-- student ka password hai ye... -->
+                            <h2 class="h2_userID" style="padding-top: 4px;">user Password :</h2>
+                            <span class="ID_show" style="margin-bottom: 5px;">
+                                <p id="password"></p>
+                            </span>
+                        </div>
+                        <div class="New_btn">
+                            <div style="width: 320px; height: 85px; display: flex;">
+                                <div class="div_002">
+                                    <button class="Button_popup" id="button_close"
+                                        style="position: relative; top: 25px;">CLOSE</button>
+                                </div>
+                                <!-- <div class="div_002">
+                                    <button onclick="editPass()" type="button" class="Button_popup"
+                                        style="width: 180px; color: darkgreen; position: relative; top: 25px;"
+                                        id="button_newPassword">EDIT PASSWORD</button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SCRIPT STATEMENT :- -->
+
+    <script>
+        function showDate() {
+            let today = new Date();
+            let date = today.toLocaleDateString("en-IN", {
+                day: "numeric",
+                // month: "long",
+                month: "numeric",
+                year: "numeric"
+            });
+
+            document.getElementById("datePara_date").innerText = date;
+        }
+
+        // pehli baar run
+        showDate();
+        // har 1 second me update hoga
+        setInterval(showDate, 1000);
+        function showDateTime() {
+            let now = new Date();
+            let date = now.toLocaleDateString("en-IN", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+            let time = now.toLocaleTimeString();
+            document.getElementById("datePara_time").innerText = time;
+        }
+
+        setInterval(showDateTime, 1000);
+
+        // dusare page ka data is page me save kar raha hai...
+        const U_data = JSON.parse(localStorage.getItem("userdetails_filled"));
+
+        // Date of Birth ko yy-mm-dd se dd-mm-yy me convert karna hai..
+        const Date_Of_Birth = U_data.dob;
+        const parts = Date_Of_Birth.split("-");
+        const dobs = parts[2] + "-" + parts[1] + "-" + parts[0];
+
+        // 🔥 ID SHOW SCRIPT
+        const ID = localStorage.getItem("CustomerID");
+        const PASS = localStorage.getItem("PASSword");
+
+        // details ka localStorage se get karo aur respective elements me set karo...
+        if (U_data) {
+            document.getElementById("image").src = U_data.image;
+            document.getElementById("name").innerText = U_data.name;
+            document.getElementById("father").innerText = U_data.father;
+            document.getElementById("mother").innerText = U_data.mother;
+            document.getElementById("e-Email").innerText = U_data.email;
+            document.getElementById("mobile").innerText = U_data.mobile;
+            document.getElementById("Gender").innerText = U_data.Gender;
+            document.getElementById("DOB").innerText = dobs;
+            document.getElementById("ADUS").innerText = U_data.uidsno;
+            document.getElementById("age").innerText = U_data.age;
+            document.getElementById("address").innerText = U_data.address;
+            document.getElementById("sc-name").innerText = U_data.sc_name;
+            document.getElementById("r-number").innerText = U_data.roll_no;
+            document.getElementById("Roll-code").innerText = U_data.roll_code;
+            document.getElementById("class").innerText = U_data.sk_class;
+
+        } else {
+            alert("No Data Found ❌");
+        }
+
+        // ID ANd PASSWORD LocalStorage SAVE
+        const pass_word = document.getElementById("password");
+        const ID_In = document.getElementById("ID");
+
+        ID_In.innerText = ID ? ID : "ID Not Found !";
+        pass_word.innerText = PASS ? PASS : "Password Not Found !";
+
+        localStorage.setItem("PASS_word", PASS);
+        localStorage.setItem("ID_In", ID);
+
+        // DEBUG
+        console.log("User_ID : ", ID, [mobile]);
+        console.log("User_Password : ", PASS, [mobile]);
+        console.log("stream :", U_data.stream);
+        console.log("skills :", U_data.skills);
+
+        function autoResize(el) {
+            el.style.height = "auto";
+            el.style.height = el.scrollHeight + "px";
+        }
+
+        // function buttonSHOW() {
+        //     alert("kam kar raha hai..")
+        // }
+
+        const Button_view = document.getElementById("button_view");
+        const views = document.getElementById("views");
+        const popupBox = document.querySelector(".userID_Pass_show");
+        const closeBtn = document.getElementById("button_close");
+
+        // 👉 सिर्फ बाहर click पर close
+        // views.addEventListener('click', () => {
+        //     views.style.display = 'none';
+        // });
+
+        // 👉 popup के अंदर click → बंद नहीं होगा
+        popupBox.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // 👁️ View open button
+        Button_view.addEventListener('click', () => {
+            views.style.display = 'flex';
+        });
+
+        // 🖼️ Click outside to close popup
+        // views.addEventListener('click', () => {
+        //     views.style.display = 'none';
+        // });
+
+        closeBtn.addEventListener("click", (e) => {
+            e.stopPropagation(); // 👉 important (popup close हो और बाहर click trigger ना हो)
+            views.style.display = "none";
+        });
+
+        // new password function code...
+        function editPass() {
+            const confirmAction = confirm("➡️ It Will Not Be Possible Without An OTR Number !\n( OTR Number के बिना यह संभव नहीं होगा । )");
+            if (confirmAction) {
+                alert("🔒 Are You Sure You Want To Change Your Password ? ⤵️\n( क्या आप Password बदलना चाहते हैं ? )");
+                window.location.href = "foram_format_03.html"; // 👉 next page
+            }
+        }
+
+        // OTR No 
+        const OTR_Box = document.getElementById("OTR_span_box");
+        const lastSix = ID.slice(-6);
+        const savedCodeID = lastSix;
+
+        // OTR condition
+        if (OTR_Box) {
+            OTR_Box.innerText = savedCodeID;
+            console.log("OTR No :", savedCodeID);
+        } else {
+            OTR_Box.innerText = "OTR Is Not Found!";
+            console.log("OTR Is Not Found!");
+        }
+
+    </script>
+</body>
+
+</html>

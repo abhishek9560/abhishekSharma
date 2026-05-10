@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Customer ID Generator</title>
+</head>
+
+<body>
+
+    <h2>Customer ID Generator</h2>
+
+    <input type="text" id="mobile" placeholder="Enter Mobile Number">
+    <br><br>
+
+    <button onclick="createID()">Generate ID</button>
+
+    <h3>Your ID: <span id="result"></span></h3>
+
+    <script>
+        // 🔥 ID Generate Function
+        function generateCustomerId(mobile) {
+
+            const users = JSON.parse(localStorage.getItem("users")) || {};
+
+            if (users[mobile]) {
+                // ✅ Same mobile → same ID
+                return users[mobile];
+            } else {
+                // 🔥 New mobile → new ID
+                const newId = "CUST-AI-" + Math.floor(100000 + Math.random() * 900000);
+
+                users[mobile] = newId;
+                localStorage.setItem("users", JSON.stringify(users));
+
+                return newId;
+            }
+        }
+
+        // 🔥 Button Function
+        function createID() {
+            let mobile = document.getElementById("mobile").value.trim();
+
+            if (mobile === "") {
+                alert("Mobile number enter karo ❌");
+                return;
+            }
+
+            let id = generateCustomerId(mobile);
+
+            document.getElementById("result").innerText = id;
+        }
+
+
+        // CUSTOMER ID GENERATE FUNCTION
+        function generateCustomerId(name) {
+            // Convert name to lowercase for consistent mapping
+            const users = JSON.parse(localStorage.getItem("users")) || {};
+
+            if (users[name.toLowerCase()]) {
+                // If already exists, return old ID
+                return users[name.toLowerCase()];
+            } else {
+                // Otherwise, create new unique ID
+                const newId = "CUST-AI-" + Math.floor(100000 + Math.random() * 900000);
+                users[name.toLowerCase()] = newId;
+                localStorage.setItem("users", JSON.stringify(users));
+                return newId;
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

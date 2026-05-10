@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application_03</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: lightgray;
+        }
+
+        .main_box {
+            width: 95%;
+            height: 90%;
+            display: flex;
+            border-radius: 20px;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        .image_01 {
+            background-image: url(https://img.freepik.com/free-photo/computer-security-with-login-password-padlock_107791-16191.jpg);
+            background-size: cover;
+            border-radius: 20px 20px 0 0;
+            background-position: center;
+        }
+
+        .h2_password {
+            font-size: 25px;
+            color: rgb(202, 2, 2);
+            font-weight: 800;
+            text-align: center;
+            font-family: "Oswald", sans-serif;
+        }
+
+        .div_ID {
+            text-align: center;
+            margin-top: 06px;
+        }
+
+        .items {
+            font-size: 25px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-family: math, system-ui;
+        }
+
+        .scrollbar_div {
+            height: 255px;
+            display: block;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        }
+
+        .input {
+            width: 95%;
+            font-size: 20px;
+            height: 35px;
+            outline: none;
+            text-align: center;
+            padding: 0 20px 0 20px;
+            border-radius: 10px;
+            margin-top: 2.5px;
+            border: 1px solid lightgray;
+        }
+
+        .input:focus {
+            border-color: aqua;
+            box-shadow: 0px 0px 5px 0px skyblue;
+        }
+
+        .yes_data {
+            height: 60px;
+            display: flex;
+            margin-top: 4px;
+            align-items: center;
+            justify-content: center;
+            /* background-color: aqua; */
+            /* border-radius: 0 0 20px 20px; */
+        }
+
+        .confirm {
+            width: 80%;
+            height: 40px;
+            border-radius: 30px;
+            box-sizing: border-box;
+            border: none;
+            color: white;
+            box-shadow: inset 0 30px 22px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 3px;
+        }
+
+        .confirm:hover {
+            color: darkblue;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .confirm:active {
+            transform: scale(0.95);
+        }
+
+        .nextDivBoxHidden {
+            /* height: 45%; */
+            display: none;
+            margin-top: 15px;
+        }
+
+        .div_ID_hide {
+            padding: 8px 0 0 0;
+            text-align: center;
+        }
+
+        .newdivboxhide {
+            /* height: 68%; */
+            display: none;
+            margin-top: 10px;
+        }
+
+        .optionalDivBox {
+            font-size: small;
+            margin: 5px 0;
+            font-family: math;
+            font-weight: 600;
+            text-align: center;
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="main_box">
+            <div class="div_box_01 image_01" style="height: 40%;"></div>
+            <div class="div_box_01">
+                <!-- <h2 class="h2_password">CHANGE PASSWORD ⬇</h2> -->
+                <h2 class="h2_password">FORGOT PASSWORD ⬇</h2>
+                <div class="scrollbar_div">
+                    <div>
+                        <div class="div_ID">
+                            <h4 class="items">User ID<sup style="color: red;">*</sup></h4>
+                            <input type="text" class="input" id="userID" maxlength="14" placeholder="Enter Your User ID"
+                                oninput="checkUserId()">
+                        </div>
+                        <p id="check_id"></p>
+                        <div class="div_ID" style="margin-top: 05px;">
+                            <h4 class="items">User Password<sup style="color: red;">*</sup></h4>
+                            <input type="text" class="input" id="oldPassword" placeholder="Enter Your Old Password"
+                                oninput="checkPassword()" disabled>
+                        </div>
+                        <p id="check_pass"></p>
+
+                        <div id="next_option_01" class="optionalDivBox"></div>
+
+                        <p
+                            style="display: inline-block; margin-left: 10px; font-family: system-ui; font-size: medium; color: darkred; font-weight: 900; margin-top: 1.5px;">
+                            📌 Note :
+                        </p>
+                        <p
+                            style="letter-spacing: 2px; font-size: 18px; color: red; font-weight: 600; font-family: math; display: inline-block; margin-left: 6px;">
+                            (i) You First Enter User ID.
+                        </p>
+                        <p style="margin-top: 0px; font-size: smaller; text-align: center; font-weight: 700;">( आपको
+                            पहले यूजर आईडी दर्ज करना होगा || )
+                        </p>
+                        <p
+                            style="letter-spacing: 2px; font-size: 18px; color: red; font-weight: 600; font-family: math; display: inline-block; margin-left: 6px; margin-top: 8px;">
+                            (ii) You First Enter Old Password.
+                        </p>
+                        <p style="margin-top: 0px; font-size: smaller; text-align: center; font-weight: 700;">( आपको
+                            पहले पुराना पासवर्ड डालना होगा || )
+                        </p>
+                        <!-- optional div -->
+                        <div id="next_div_box_hidden" class="nextDivBoxHidden">
+                            <!-- mobile / email -->
+                            <div class="div_ID_hide">
+                                <h4 class="items">📞 Mobile / Email</h4>
+                                <input type="text" class="input" id="mobile_Email" placeholder="Contact Mobile / Email">
+                            </div>
+                            <!-- OTR verify -->
+                            <div class="div_ID_hide" style="padding: 6px 0 0 0;">
+                                <h4 class="items">OTR NO<sup style="color: red;">*</sup></h4>
+                                <input type="text" class="input" id="OTR" maxlength="6" placeholder="Enter OTR Number"
+                                    oninput="checkOTR()">
+                            </div>
+                            <p id="check_OTR"></p>
+                        </div>
+
+                        <div id="next_option_02" class="optionalDivBox"></div>
+
+                        <div id="New_div_box_hide" class="newdivboxhide">
+                            <div class="div_ID_hide" style="padding: 8px 0 0 0;">
+                                <h4 class="items">🔐 New Password</h4>
+                                <input type="text" class="input" id="New_pass" placeholder="Enter New Password">
+                            </div>
+                            <div class="div_ID_hide" style="padding: 10px 0 0 0;">
+                                <h4 class="items">Confirm Password</h4>
+                                <input type="text" class="input" id="Re_New_pass" placeholder="Return New Password">
+                            </div>
+                            <p id="pass_word_matched"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="yes_data">
+                    <button type="button" class="confirm" id="confirm_btn" onclick="confirm_update()">UPDATE</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <script>
+
+        // id check function code...
+        function checkUserId() {
+            const inputId = document.getElementById("userID").value.trim();
+            const savedId = localStorage.getItem("CustomerID");
+
+            // console.log("id :", savedId);
+
+            const msgId = document.getElementById("check_id");
+            const passwordInput = document.getElementById("oldPassword");
+
+            if (inputId === savedId) {
+                msgId.innerHTML = "✅ ID Matched";
+                msgId.style.color = "darkgreen";
+                msgId.style.fontWeight = "700";
+                msgId.style.fontFamily = "system-ui";
+                msgId.style.letterSpacing = "1.2px";
+                msgId.style.marginLeft = "10px";
+                msgId.style.fontSize = "17.8px"
+
+
+                // 🔓 password enable
+                passwordInput.disabled = false;
+
+            } else {
+                msgId.innerHTML = "❌ Wrong ID";
+                msgId.style.color = "red";
+                msgId.style.fontWeight = "700";
+                msgId.style.fontFamily = "system-ui";
+                msgId.style.letterSpacing = "1.2px";
+                msgId.style.marginLeft = "10px";
+                msgId.style.fontSize = "17.8px"
+
+
+                // 🔒 password disable
+                passwordInput.disabled = true;
+                passwordInput.value = "";
+
+                document.getElementById("check_pass").innerHTML = "";
+            }
+
+            return savedId;
+        }
+
+        // password check function code...
+        function checkPassword() {
+            const inputPass = document.getElementById("oldPassword").value.trim();
+            const savedPass = localStorage.getItem("PASS_word");
+            const next_box = document.getElementById("next_div_box_hidden");
+            const ODBox = document.getElementById("next_option_01");
+
+            // console.log("password :", savedPass);
+
+            const msgPass = document.getElementById("check_pass");
+
+            if (inputPass === savedPass) {
+                msgPass.innerHTML = "✅ Password Match !";
+                msgPass.style.color = "darkgreen";
+                msgPass.style.fontWeight = "700";
+                msgPass.style.fontFamily = "system-ui";
+                msgPass.style.letterSpacing = "1.2px";
+                msgPass.style.marginLeft = "10px";
+                msgPass.style.fontSize = "17.8px"
+
+                // 🎯 next option show
+                next_box.style.display = "block";
+                ODBox.innerText = "✔️ Now You Can Fill OTR Number\n(अब आप OTR Number भर सकते हैं ।)";
+
+            } else {
+                msgPass.innerHTML = "❌ Password Do Not Match !";
+                msgPass.style.color = "red";
+                msgPass.style.fontWeight = "700";
+                msgPass.style.fontFamily = "system-ui";
+                msgPass.style.letterSpacing = "1.2px";
+                msgPass.style.marginLeft = "10px";
+                msgPass.style.fontSize = "17.8px"
+
+                // 🎯 next option show
+                next_box.style.display = "none";
+                ODBox.innerText = "";
+
+            }
+
+            return savedPass;
+        }
+
+        // OTR verify function code...
+        function checkOTR() {
+            const input_OTR = document.getElementById("OTR").value.trim();
+            const in_OTR_DA = document.getElementById("OTR");
+            const ME_mobile = document.getElementById("mobile_Email");
+            const New_Div = document.getElementById("New_div_box_hide");
+            const checkID = localStorage.getItem("CustomerID");
+            const lastSix = checkID.slice(-6);
+            const savedOTR = lastSix;
+
+            // console.log("Last 6 Digits:", savedOTR);
+
+            const msgOTR = document.getElementById("check_OTR");
+            const ODBox_2 = document.getElementById("next_option_02");
+
+            if (input_OTR === savedOTR) {
+                alert("✅ OTR Verified ! ⤵️\n✔️ Scroll Down And Enter The New Password And Confirm Password ! \n( नीचे स्क्रॉल करें, यह नया पासवर्ड और कन्फ़र्म पासवर्ड भरें । )");
+
+                msgOTR.innerHTML = "✅ OTR Verified";
+                msgOTR.style.color = "darkgreen";
+                msgOTR.style.fontWeight = "700";
+                msgOTR.style.fontFamily = "system-ui";
+                msgOTR.style.letterSpacing = "1.2px";
+                msgOTR.style.marginLeft = "10px";
+                msgOTR.style.fontSize = "17.8px"
+
+                // 🎯 next option show
+                New_Div.style.display = "block";
+                ODBox_2.innerText = "✔️ Now You Can Fill New Password\n(अब आप नया पासवर्ड भर सकते हैं । )";
+
+                // disabled
+                ME_mobile.disabled = true;
+                in_OTR_DA.disabled = true;
+
+            } else {
+
+                msgOTR.innerHTML = "❌ OTR Wrong";
+                msgOTR.style.color = "red";
+                msgOTR.style.fontWeight = "700";
+                msgOTR.style.fontFamily = "system-ui";
+                msgOTR.style.letterSpacing = "1.2px";
+                msgOTR.style.marginLeft = "10px";
+                msgOTR.style.fontSize = "17.8px"
+
+                // 🎯 next option show
+                New_Div.style.display = "none";
+                ODBox_2.innerText = "";
+
+            }
+
+            return savedOTR;
+        }
+
+        // confirm button function code...
+        function confirm_update() {
+
+            const inputId = document.getElementById("userID").value.trim();
+            const inputPass = document.getElementById("oldPassword").value.trim();
+            const ME = document.getElementById("mobile_Email").value.trim();
+            const OTR = document.getElementById("OTR").value.trim();
+            const checkID = localStorage.getItem("CustomerID");
+            const NewPass = document.getElementById("New_pass").value.trim();
+            const re_New_Pass = document.getElementById("Re_New_pass").value.trim();
+            const pass_matched = document.getElementById("pass_word_matched");
+
+            // password input data
+            localStorage.getItem("PASS_word");
+
+            // conditions
+            if (!inputId) {
+                alert("⚠️ Please Enter ID ❗\n( कृपया ID दर्ज करें । )");
+                return;
+            }
+
+            if (!inputPass) {
+                alert("🔏 Please Enter Password ❗\n( कृपया Password दर्ज करें | )");
+                return;
+            }
+
+            if (!ME) {
+                alert("Please Enter 📲 Mobile / 💌 Email ❗\n( कृपया Mobile Or Email दर्ज करें | )");
+                return;
+            }
+
+            if (!OTR) {
+                alert("Please Enter OTR No❗\n( कृपया OTR No दर्ज करें । )")
+                return;
+            }
+
+            if (!checkID) {
+                alert("OTR No Not Found❗\n( OTR No नहीं मिला | )");
+                return;
+            }
+
+            if (!NewPass) {
+                alert("Please Enter New Password❗\n( कृपया New Password डालें । )")
+                return;
+            }
+
+            if (!re_New_Pass) {
+                alert("Please Re-Enter New Password❗\n( कृपया Re-Enter New Password डालें । )")
+                return;
+            }
+
+            if (NewPass === re_New_Pass) {
+
+                pass_matched.innerHTML = "✔️ password changed !";
+                pass_matched.style.color = "darkgreen";
+                pass_matched.style.fontWeight = "700";
+                pass_matched.style.fontFamily = "system-ui";
+                pass_matched.style.letterSpacing = "1.2px";
+                pass_matched.style.marginLeft = "10px";
+                pass_matched.style.fontSize = "17.8px";
+
+                alert("✅ Password Updated Successfully !");
+
+            } else {
+                pass_matched.innerHTML = "❌ Password Not Matched";
+                pass_matched.style.color = "red";
+                pass_matched.style.fontWeight = "700";
+                pass_matched.style.fontFamily = "system-ui";
+                pass_matched.style.letterSpacing = "1.2px";
+                pass_matched.style.marginLeft = "10px";
+                pass_matched.style.fontSize = "17.8px";
+
+                return;
+            }
+
+            // password output data
+            localStorage.setItem("PASSword", NewPass);
+
+        }
+
+    </script>
+</body>
+
+</html>

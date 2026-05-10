@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Upload Boxes</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #0fd3d3;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Main Box */
+        .container {
+            background: #2ecc71;
+            padding: 15px;
+            border-radius: 15px;
+            width: 350px;
+            margin: auto;
+        }
+
+        /* Upload Box */
+        .upload-box {
+            background: #dfe6e9;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Buttons */
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .view {
+            background: #bdc3c7;
+        }
+
+        .save {
+            background: #2ecc71;
+        }
+
+        .delete {
+            background: #e74c3c;
+            color: white;
+        }
+
+        /* Plus Button */
+        .add-btn {
+            background: black;
+            color: white;
+            font-size: 20px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>UPLOAD INFORMATION</h2>
+
+    <div class="container" id="container">
+        <!-- Boxes will come here -->
+    </div>
+
+    <br>
+    <button class="add-btn" onclick="addBox()">+</button>
+
+    <script>
+
+        let count = 0;
+
+        function addBox() {
+            count++;
+
+            const div = document.createElement("div");
+            div.className = "upload-box";
+            div.id = "box" + count;
+
+            div.innerHTML = `
+        <input type="file" id="file${count}"><br>
+        <button class="view" onclick="viewFile(${count})">VIEW</button>
+        <button class="save" onclick="saveFile(${count})">SAVE</button>
+        <button class="delete" onclick="deleteBox(${count})">DELETE</button>
+        <div id="preview${count}"></div>
+    `;
+
+            document.getElementById("container").appendChild(div);
+        }
+
+
+        // View Function
+        function viewFile(id) {
+            const file = document.getElementById("file" + id).files[0];
+            const preview = document.getElementById("preview" + id);
+
+            if (!file) {
+                alert("File select karo");
+                return;
+            }
+
+            const url = URL.createObjectURL(file);
+
+            if (file.type.startsWith("image/")) {
+                preview.innerHTML = `<img src="${url}" width="100">`;
+            }
+            else if (file.type === "application/pdf") {
+                preview.innerHTML = `<iframe src="${url}" width="150" height="150"></iframe>`;
+            }
+            else {
+                preview.innerHTML = "Preview not supported";
+            }
+        }
+
+
+        // Save Function (localStorage)
+        function saveFile(id) {
+            const file = document.getElementById("file" + id).files[0];
+
+            if (!file) {
+                alert("File select karo");
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                localStorage.setItem("fileData" + id, e.target.result);
+                localStorage.setItem("fileType" + id, file.type);
+
+                alert("Saved ✅");
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+
+        // Delete Box
+        function deleteBox(id) {
+            document.getElementById("box" + id).remove();
+
+            localStorage.removeItem("fileData" + id);
+            localStorage.removeItem("fileType" + id);
+        }
+
+    </script>
+
+</body>
+
+</html>

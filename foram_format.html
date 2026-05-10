@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application</title>
+    <!-- style head se start hota hai aur end head ke andar me khatam hota hai.. -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: lightgray;
+        }
+
+        .div_detail_box {
+            width: 60%;
+            height: 92%;
+            display: flex;
+            border-radius: 15px;
+            flex-direction: column;
+            border: 1px solid lightgray;
+            background-color: white;
+            padding: 6px 10px;
+        }
+
+        .div_heading {
+            display: flex;
+            padding-bottom: 6px;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1.5px solid lightgray;
+        }
+
+        .two_div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .div_01 {
+            width: 50%;
+            height: 92%;
+        }
+
+        .input_details {
+            width: 62%;
+            height: 25px;
+            font-size: 14.5px;
+            outline: none;
+            padding: 0 5px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            position: relative;
+            right: -28px;
+            font-weight: 400;
+        }
+
+        .label_details {
+            margin: 0 30px 0 0;
+            font-family: math;
+            font-weight: 500;
+            font-size: 17px;
+        }
+
+        .div-setting {
+            height: 40px;
+        }
+
+        .radio_btn {
+            top: 1px;
+            right: -2px;
+            width: 25px;
+            position: relative;
+        }
+
+        .gender_div {
+            display: flex;
+            font-size: 15px;
+            font-weight: 500;
+            align-items: center;
+        }
+
+        select:focus {
+            border-color: #0a86e9;
+            box-shadow: 0 0 5px skyblue;
+        }
+
+        .div-setting_02 {
+            margin-top: 15px;
+            position: relative;
+            left: 149px;
+            font-size: 16.5px;
+            font-family: monospace;
+            width: 250px;
+            padding: 5px;
+            display: flex;
+            height: 50px;
+            background-color: #d3d3d3b3;
+            border-radius: 20px;
+            border: 1px solid lightgray;
+        }
+
+        .h4_details {
+            font-size: 20px;
+            font-style: italic;
+            text-align: center;
+            border-bottom: 1px solid lightgray;
+            border-right: 1px solid lightgray;
+        }
+
+        .div_gender {
+            width: 144px;
+        }
+
+        #gender_p {
+            width: 80px;
+        }
+
+        .div_gender_option {
+            width: 65%;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            column-gap: 10px;
+        }
+
+        #sc-name {
+            right: -11px;
+            width: 260px;
+            padding: 2px 5px;
+            height: 28px;
+            cursor: pointer;
+        }
+
+        #fg_02 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .gj_03 {
+            width: 65%;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            column-gap: 6px;
+        }
+
+        .recaptcha_div {
+            width: 75%;
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .recaptcha_02 {
+            width: 100%;
+            height: 50%;
+            text-align: end;
+        }
+
+        .recaptcha_label {
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .image_div {
+            width: 25%;
+            height: 50px;
+            background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/1280px-RecaptchaLogo.svg.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .footer_div {
+            text-align: center;
+            padding: 10px;
+            background: #222;
+            color: white;
+            display: none;
+        }
+
+        /* .div-setting_04 {
+            display: none;
+        } */
+
+        /* ================= MOBILE (max 720px) ================= */
+        @media (max-width: 720px) {
+
+            .div_detail_box {
+                width: 93%;
+                padding: 10px;
+                height: 96%;
+            }
+
+            .div_heading {
+                font-size: 15px;
+                padding: 5px;
+                border-radius: 15px;
+                background: lightgray;
+                border: none;
+            }
+
+            .form_div_full_details {
+                width: auto;
+                height: 99.6%;
+                overflow-y: scroll;
+                overflow-x: clip;
+                scroll-behavior: smooth;
+                display: block;
+                scrollbar-width: none;
+                margin-top: 2px;
+            }
+
+            .two_div {
+                width: 100.5%;
+                height: 100%;
+                display: block;
+            }
+
+            .div_01 {
+                width: 100%;
+                height: 108.5%;
+            }
+
+            .h4_details {
+                font-size: 18px;
+                padding: 2px 0;
+                border-right: none;
+                border-top: 1px solid lightgray;
+            }
+
+            .input_details {
+                width: 96% !important;
+                right: 0 !important;
+            }
+
+            .label_details {
+                display: block;
+                margin-right: 0px;
+                width: fit-content;
+                padding-left: 0px !important;
+            }
+
+            .div_gender {
+                width: 72px;
+            }
+
+            .div_gender_option {
+                width: 80%;
+            }
+
+            #gender_p {
+                width: 72px;
+                margin-right: 0px;
+            }
+
+            #div_setting_02 {
+                width: 99.5%;
+            }
+
+            .div-setting {
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            textarea {
+                width: 96% !important;
+                height: 68.5px !important;
+                right: 0 !important;
+                top: 0 !important;
+            }
+
+            .gender_div {
+                font-size: 14px;
+            }
+
+            .div-setting_02 {
+                width: 52%;
+                height: 36px;
+                justify-content: space-between;
+            }
+
+            .h4_div_details {
+                padding-top: 4px;
+            }
+
+            #sc-name {
+                width: 99.5% !important;
+            }
+
+            #fg_02 {
+                width: 99.5%;
+            }
+
+            .gj_03 {
+                width: 80%;
+            }
+
+            #skills-code {
+                width: 99.5% !important;
+            }
+
+            #class {
+                width: 99.5% !important;
+            }
+
+            .recaptcha_div {
+                height: 36px;
+            }
+
+            .recaptcha_02 {
+                line-height: 1;
+                text-align: center;
+                height: 50%;
+            }
+
+            .recaptcha_label {
+                font-size: 12px;
+                padding-left: 4.4px;
+            }
+
+            #msg {
+                font-size: 14px;
+                margin-top: 0px !important;
+                position: relative;
+                left: 20px;
+            }
+
+            .image_div {
+                width: 25%;
+                height: 40px;
+                position: relative;
+                top: -2px;
+            }
+
+            .footer_div {
+                display: block;
+                margin-top: 16px;
+            }
+
+            .div-setting_04 {
+                width: 100%;
+                height: 40px;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                background-color: lightgray;
+            }
+
+            .input_file {
+                width: 90%;
+                padding: 3px;
+                font-size: 15px;
+            }
+        }
+
+        /* ================= TABLET (720px - 1050px) ================= */
+        @media (min-width: 721px) and (max-width: 1050px) {
+
+            .div_detail_box {
+                width: 90%;
+                height: auto;
+            }
+
+            .two_div {
+                flex-direction: column;
+            }
+
+            .div_01 {
+                width: 100%;
+            }
+
+            .input_details {
+                width: 80%;
+                right: 0 !important;
+            }
+
+            textarea {
+                width: 80% !important;
+                right: 0 !important;
+            }
+        }
+
+
+        /* ================= SMALL LAPTOP (1050px - 1650px) ================= */
+        @media (min-width: 1051px) and (max-width: 1650px) {
+
+            .div_detail_box {
+                width: 80%;
+            }
+
+            .input_details {
+                width: 70%;
+            }
+        }
+
+        #msg {
+            margin-top: 5px;
+            color: green;
+            font-weight: bold;
+        }
+
+        button {
+            height: 35px;
+            padding: 2px 5px;
+            width: 150px;
+            border: 1px solid lightgray;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all ease-in 0.2s;
+        }
+
+        button:hover {
+            color: white;
+            background-color: black;
+            transform: scale(1.2);
+            /* box-shadow: 13px 13px 8px 2px darkgray; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- body ke andar me statement likha jata hai aur sab details bhi esime likha jata hai.. -->
+    <div class="div_detail_box">
+        <div class="div_heading">
+            <h2 class="heading" style="line-height: 1;">Student Registration Form</h2>
+        </div>
+        <div class="form_div_full_details">
+            <div class="two_div">
+                <div class="div_01">
+                    <div>
+                        <h4 class="h4_details">Personal Details :</h4>
+                    </div>
+                    <div class="div-setting" style="margin-top: 16px;">
+                        <label class="label_details" for="name">Name :</label>
+                        <input id="name" name="username" class="input_details" value="" type="text"
+                            placeholder="Enter Your Name" oninput="capitalFirstLetter_name()" style="right: -58px;"
+                            required>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="f-name" style="margin-right: 10px;">Father Name :</label>
+                        <input id="f-name" class="input_details" value="" type="text"
+                            placeholder="Enter Your Father Name" oninput="capitalFirstLetter_father()" required>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="m-name" style="margin-right: 10px;">Mother Name :</label>
+                        <input id="m-name" class="input_details" value="" type="text"
+                            placeholder="Enter Your Mother Name" oninput="capitalFirstLetter_mother()"
+                            style="right: -21px;" required>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="e-mail" style="margin-right: 23px;">E-mail :</label>
+                        <input id="e-mail" class="input_details" value="" type="email" placeholder="Enter Your E-mail"
+                            style="right: -59px;" required>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="mobile" style="margin-right: 23px;">Mobile :</label>
+                        <input id="mobile" class="input_details" value="" maxlength="10" type="text"
+                            placeholder="Enter Your Mobile" style="right: -57px;" required>
+                    </div>
+                    <div class="div-setting" id="div_setting_02"
+                        style="line-height: 35px; display: flex; flex-direction: row;">
+                        <div class="div_gender">
+                            <p class="label_details" id="gender_p">Gender :</p>
+                        </div>
+                        <div class="div_gender_option">
+                            <div class="gender_div">
+                                <label for="m-male" style="cursor: pointer;">Male</label>
+                                <input id="m-male" class="radio_btn" name="Gender" value="male" type="radio" required>
+                            </div>
+                            <div class="gender_div">
+                                <label for="f-male" style="cursor: pointer;">Fe-Male</label>
+                                <input id="f-male" class="radio_btn" name="Gender" value="fe-male" type="radio">
+                            </div>
+                            <div class="gender_div">
+                                <label for="o-male" style="cursor: pointer;">Other Male</label>
+                                <input id="o-male" class="radio_btn" name="Gender" value="other-male" type="radio">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="DOB" style="margin-right: 0px;">Date
+                            Of Birth :</label>
+                        <input id="DOB" class="input_details" type="date" style="right: -36px; cursor: pointer;"
+                            required onchange="calculateAge()">
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="UIDS-No">Aadhaar No :</label>
+                        <input id="UIDS-No" class="input_details" value="" maxlength="14" type="text"
+                            style="right: -15px;" placeholder="Enter Your Aadhaar No" oninput="formatAadhaar()">
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="age">Age :</label>
+                        <input id="age" class="input_details" value="" maxlength="3" type="text" style="right: -73px;"
+                            placeholder="Enter Your Age" onclick="checkAge()" onchange="validateAge()" required>
+                    </div>
+                    <div class="div-setting" style="height: 70px;">
+                        <label class="label_details" for="address" style="margin-right: 0px; display: flex;">Address
+                            :</label>
+                        <textarea id="address" class="input_details" placeholder="Enter Full Address"
+                            style="right: -144px; top: -20px; width: 254px; height: 68px; resize: none;"
+                            required></textarea>
+                    </div>
+                </div>
+                <div class=" div_01">
+                    <div class="h4_div_details">
+                        <h4 class="h4_details">School / College Details :</h4>
+                    </div>
+                    <div class="div-setting" style="margin-top: 16px;">
+                        <label class="label_details" for="sc-name" style="margin-right: 0px; padding-left: 10px;">Sch /
+                            Coll Name :</label>
+                        <select required name="sc-name" id="sc-name" class="input_details">
+                            <option value="">Select School / College Name</option>
+                            <option value="C.H.S MANIYARPUR, BANKA">C.H.S MANIYARPUR,BANKA</option>
+                            <option value="U.H.S KAIRI BAUNSI, BANKA">U.H.S KAIRI
+                                BAUNSI,BANKA
+                            </option>
+                            <option value="S.D.M.Y.COLLEGE, DHORAIYA,BANKA">S.D.M.Y.COLLEGE, DHORAIYA,BANKA
+                            </option>
+                            <option value="C.N.D +2 HIGH SCHOOL,BAUNSI, BANKA">C.N.D +2 HIGH SCHOOL,BAUNSI,
+                                BANKA
+                            </option>
+                            <option value="RAJPUR +2 H/S ,RAJPUR,BANKA">RAJPUR +2 H/S,RAJPUR,BANKA</option>
+                            <option value="M.A.Y.COLLEGE,DHAKAMORE,BANKA">M.A.Y.COLLEGE,DHAKAMORE,BANKA</option>
+                            <option value="DR. HARIHAR CHAUDHARY +2 H/S, BARAHAT, BANKA">DR.HARIHAR
+                                CHAUDHARY +2 H/S,BARAHAT,BANKA</option>
+                            <option value="R.M.K INTER STD.SCHOOL, BANKA">R.M.K INTER STD.SCHOOL,BANKA
+                            </option>
+                            <option value="+2 H/S KATORIA,BANKA">+2 H/S KATORIA,BANKA</option>
+                            <option value="L.P.KHETAN COLLEGE,BARAHAT,BANKA">L.P.KHETAN
+                                COLLEGE,BARAHAT,BANKA</option>
+                            <option value="H.K.B.COLLEGE, AMARPUR,BANKA">H.K.B.COLLEGE,AMARPUR,BANKA
+                            </option>
+                            <option value="M.A.Y.COLLEGE,DHAKAMORE,BANKA">M.A.Y.COLLEGE,DHAKAMORE,BANKA
+                            </option>
+                            <option value="C.S.COLLEGE, BELHAR, BANKA">C.S.COLLEGE, BELHAR,BANKA
+                            </option>
+                            <option value="H P B COLLEGE,JILABIAMORE,BANKA">H P B
+                                COLLEGE,JILABIAMORE,BANKA
+                            </option>
+                            <option value="R.A. COLLEGE, SHAMBHUGANJ,BANKA">R.A. COLLEGE, SHAMBHUGANJ,BANKA
+                            </option>
+                        </select>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="r-no" style="margin-right: 9px; padding-left: 10px;">Roll
+                            No :</label>
+                        <input id="r-no" class="input_details" value="" maxlength="7" type="text"
+                            placeholder="Enter Your Roll No" style="right: -65px; width: 60%;" required>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="r-code" style="margin-right: 9px; padding-left: 10px;">Roll
+                            Code :</label>
+                        <input id="r-code" class="input_details" value="" maxlength="5" type="text"
+                            placeholder="Enter Your Roll Code" style="right: -50px; width: 60%;" required>
+                    </div>
+                    <div class="div-setting" id="fg_02">
+                        <p class="label_details" style="margin-right: 0px; padding-left: 10px;">Stream :</p>
+                        <div class="gj_03">
+                            <div class="gender_div">
+                                <label for="Science" style="cursor: pointer;">Science</label>
+                                <input id="Science" class="radio_btn" name="stream" value="science" type="checkbox"
+                                    onclick="selectOnlyOne(this)">
+                            </div>
+                            <div class="gender_div">
+                                <label for="Arts" style="cursor: pointer;">Arts</label>
+                                <input id="Arts" class="radio_btn" name="stream" value="arts" type="checkbox"
+                                    onclick="selectOnlyOne(this)">
+                            </div>
+                            <div class="gender_div">
+                                <label for="Commerce" style="cursor: pointer;">Commerce</label>
+                                <input id="Commerce" class="radio_btn" name="stream" value="commerce" type="checkbox"
+                                    onclick="selectOnlyOne(this)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="skills-code"
+                            style="margin-right: 9px; padding-left: 10px;">Skills
+                            :</label>
+                        <select name="skills-code" id="skills-code" class="input_details"
+                            style="right: -82px; width: 257px; padding: 2px 5px; height: 28px; cursor: pointer;">
+                            <option value="">Select Stream</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="java script">Java Script</option>
+                            <option value="python">Python</option>
+                            <option value="c++">C++</option>
+                            <option value="php">PHP</option>
+                            <option value="c#">C#</option>
+                            <option value="node js">Node JS</option>
+                            <option value="c">c</option>
+                            <option value="java">Java</option>
+                            <option value="ai">AI</option>
+                        </select>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="s/c-code" style="margin-right: 0px; padding-left: 10px;">Sch /
+                            Coll Code :</label>
+                        <input id="s/c-code" class="input_details" value="" type="text"
+                            placeholder="Enter Your School / College Code" style="right: -19px; width: 60%;" required>
+                    </div>
+                    <div class="div-setting">
+                        <label class="label_details" for="class" style="margin-right: 9px; padding-left: 10px;">Class
+                            :</label>
+                        <select required name="class" id="class" class="input_details"
+                            style="right: -84px; width: 257px; padding: 2px 5px; height: 28px; cursor: pointer;">
+                            <option value="">Select Class</option>
+                            <option value="9">9<sup>th</sup></option>
+                            <option value="10">10<sup>th</sup></option>
+                            <option value="11">11<sup>th</sup></option>
+                            <option value="12">12<sup>th</sup></option>
+                        </select>
+                    </div>
+                    <div class="div-setting_02">
+                        <div class="recaptcha_div">
+                            <div class="recaptcha_02">
+                                <input type="checkbox" id="robotCheck" onclick="checkRobot()"
+                                    style="width: 15px; height: 15px; position: relative; top: 2.5px; cursor: pointer;"
+                                    required>
+                                <label for="robotCheck" class="recaptcha_label">I'm
+                                    not a robot</label>
+                            </div>
+                            <div style="width: 100%; height: 50%; text-align: center;">
+                                <p id="msg"></p>
+                            </div>
+                        </div>
+                        <div class="image_div">
+                        </div>
+                    </div>
+                    <div class="div-setting_04" style="border-radius: 25px; margin-top: 15px;">
+                        <input type="file" class="input_file" accept="image/*" id="fileInput">
+                    </div>
+                    <div class="div-setting" style="margin-top: 15px; height: fit-content;">
+                        <div class="div-button" style="text-align: center;">
+                            <button type="button" onclick="Register_btn()" class="button"
+                                style="font-family: math; font-weight: 600;">Register
+                            </button>
+                        </div>
+                    </div>
+                    <footer class="footer_div">
+                        <p>
+                            © 2026 Your Website Name. All rights reserved. This website is designed to provide
+                            useful information and a better user experience. For any queries, feel free to contact
+                            us.
+                        </p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- body ke upar se script ka statement likha jata hai.. -->
+    <script>
+        function Register_btn() {
+            const file = document.getElementById("fileInput").files[0];
+            const name = document.getElementById("name").value.trim();
+            const father = document.getElementById("f-name").value.trim();
+            const mother = document.getElementById("m-name").value.trim();
+            const email = document.getElementById("e-mail").value.trim();
+            const mobile = document.getElementById("mobile").value.trim();
+            const Gender = document.querySelector('input[name="Gender"]:checked')?.value || "";
+            // const stream = document.querySelector('input[name="stream"]:checked')?.value || "";
+            const Date_Of_Birth = document.getElementById("DOB").value.trim();
+            const UIDSNO = document.getElementById("UIDS-No").value.trim();
+            const age = document.getElementById("age").value.trim();
+            const address = document.getElementById("address").value.trim();
+            const sc_name = document.getElementById("sc-name").value.trim();
+            const R_NO = document.getElementById("r-no").value.trim();
+            const R_Code = document.getElementById("r-code").value.trim();
+            const sk_class = document.getElementById("class").value.trim();
+            const robotCheck = document.getElementById("robotCheck").checked;
+            const skills = document.getElementById("skills-code").value.trim();
+            const selectedStream = document.querySelector('input[name="stream"]:checked');
+            const streamValue = selectedStream.value;
+
+            // ✅ 1. पहले validation
+            if (!name || !father || !mother || !email || !mobile || !Gender || !Date_Of_Birth || !UIDSNO || !age || !address || !sc_name || !R_NO || !R_Code || !sk_class) {
+                alert("Please Fill All The Details...❗");
+                return false;
+            }
+
+            if (!robotCheck) {
+                alert("Please Verify That You Are Not A Robot...❗");
+                return false;
+            }
+
+            if (!file) {
+                alert("Please Select An Image....❗");
+                return false;
+            }
+
+            //  ✅ 2. Confirm Box (sab details sahi hai ya nahi)
+            const confirmBOX = confirm("Are You Sure..! All Your Details Are Correct...?\n(क्या आपको यकीन है कि आपकी सभी जानकारी सही है?)");
+            if (!confirmBOX) return;
+
+            // ✅ 3. अब ID और Password generate होगा (सही जगह)
+            // id generate karne ka code hai 
+            const USERID = generateCustomerId(mobile); // 🔥 ID Generate
+            alert("Your User ID Is : " + USERID + "\n(आपका यूजर आईडी है : " + USERID + ")\n\nNote : Please Remember Your User ID For Future Login...❗\n(नोट : कृपया भविष्य के लॉगिन के लिए अपना यूजर आईडी याद रखें...❗)");
+            localStorage.setItem("CustomerID", USERID); // 🔥 ID Save in Local Storage
+
+            // password generate karne ka code hai
+            const passworD = setPassword(mobile);
+            alert("Your Password Is : " + passworD + "\n(आपका पासवर्ड है : " + passworD + ")\n\nNote : Please Remember Your Password For Future Login...❗\n(नोट : कृपया भविष्य के लॉगिन के लिए अपना पासवर्ड याद रखें...❗)");
+            localStorage.setItem("PASSword", passworD); // 🔥 Password Save in Local Storage
+
+            // ✅ 4. Image + Data Save
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+
+                const img = new Image();
+                img.src = e.target.result;
+
+                img.onload = function () {
+                    const canvas = document.createElement("canvas");
+                    const ctx = canvas.getContext("2d");
+
+                    // 🔥 image size control
+                    const maxWidth = 300;
+                    const scale = maxWidth / img.width;
+
+                    canvas.width = maxWidth;
+                    canvas.height = img.height * scale;
+
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    // 🔥 compress image (VERY IMPORTANT)
+                    const compressedImage = canvas.toDataURL("image/jpeg", 0.5);
+
+                    // local Data isame save ho raha hai...
+                    const userdetails_filled = {
+                        image: compressedImage,
+                        name: name,
+                        father: father,
+                        mother: mother,
+                        email: email,
+                        mobile: mobile,
+                        Gender: Gender,
+                        dob: Date_Of_Birth,
+                        uidsno: UIDSNO,
+                        age: age,
+                        address: address,
+                        sc_name: sc_name,
+                        roll_no: R_NO,
+                        roll_code: R_Code,
+                        sk_class: sk_class,
+                        stream: streamValue,
+                        skills: skills,
+                    }
+
+                    // ✅ SAVE DATA          
+                    localStorage.setItem("userdetails_filled", JSON.stringify(userdetails_filled));
+                    alert("Registration Successfully...✅\n(पंजीकरण सफलतापूर्वक हो गया...||)");
+                    window.location.href = "foram_format_02.html";
+                };
+            };
+
+            reader.readAsDataURL(file);
+        };
+
+        // old function....
+        function capitalFirstLetter_name() {
+            const input = document.getElementById("name");
+            const value = input.value;
+            input.value = value.charAt(0).toUpperCase() + value.slice(1);
+        }
+
+        function capitalFirstLetter_father() {
+            const input = document.getElementById("f-name");
+            const value = input.value;
+            input.value = value.charAt(0).toUpperCase() + value.slice(1);
+        }
+
+        function capitalFirstLetter_mother() {
+            const input = document.getElementById("m-name");
+            const value = input.value;
+            input.value = value.charAt(0).toUpperCase() + value.slice(1);
+        }
+
+        function formatAadhaar() {
+            const input = document.getElementById("UIDS-No");
+            // sirf numbers allow
+            let value = input.value.replace(/\D/g, "").slice(0, 12);
+            // 4-4-4 format
+            value = value.replace(/(\d{4})(?=\d)/g, "$1 ");
+            input.value = value;
+        }
+
+        function calculateAge() {
+            const dob = document.getElementById("DOB").value;
+            const ageInput = document.getElementById("age");
+
+            if (!dob) return;
+
+            const birthDate = new Date(dob);
+            const today = new Date();
+
+            const age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+
+            // exact age calculate
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            ageInput.value = age;
+
+            // 🔥 auto check (18 se kam)
+            if (age < 18) {
+                alert("आपका Age 18 से कम है ❌");
+            }
+        }
+
+        const Isasked = false; // 🔥 popup ek hi baar ke liye
+        function checkAge() {
+            const input = document.getElementById("age");
+            if (Isasked) return; // 👉 dubara popup nahi aayega
+            const result = confirm(" क्या आप 18 साल के हो :- \n(i) हाँ, तो ओके (OK) पर क्लीक करे |  \n(ii) नहीं, तो कैंसिल (Cancel) पर क्लिक करे | ");
+            Isasked = true; // 🔥 ek baar ho gaya
+            if (!result) {
+                input.value = "Child / Kid";
+                input.setAttribute("readonly", true);
+            } else {
+                input.value = "";
+                input.removeAttribute("readonly");
+            }
+        }
+
+        function validateAge() {
+            const input = document.getElementById("age");
+            const age = parseInt(input.value);
+            if (!isNaN(age) && age < 18) {
+                alert(" आपका एज (Age) 18 से कम है :- \n(i) आपको दोबारा क्लिक करना होगा |  \n(ii) आपको कैंसिल (Cancel) पर क्लिक करना होगा| ");
+                input.value = "";
+            }
+        }
+
+        function selectOnlyOne(checkbox) {
+            const checkboxes = document.getElementsByName("stream");
+            checkboxes.forEach((item) => {
+                if (item !== checkbox) item.checked = false;
+            });
+
+            // ✅ save selected value
+            if (checkbox.checked) {
+                localStorage.setItem("stream", checkbox.value);
+            }
+        }
+
+        function checkRobot() {
+            const check = document.getElementById("robotCheck");
+            const msg = document.getElementById("msg");
+            if (check.checked) {
+                msg.innerHTML = "Verified ✅";
+            } else {
+                msg.innerHTML = "";
+            }
+        }
+        // 🔥 ID Generate Function
+        function generateCustomerId(mobile) {
+            const users = JSON.parse(localStorage.getItem("users")) || {};
+
+            // 👉 अगर पहले से ID है
+            if (users[mobile]) {
+
+                // 🔥 अगर पुराना format है तो update कर दो
+                if (!users[mobile].startsWith("SRA-NTP-")) {
+                    const newId = "SRA-NTP-" + users[mobile].split("-").pop();
+                    users[mobile] = newId;
+                    localStorage.setItem("users", JSON.stringify(users));
+                    return newId;
+                }
+
+                return users[mobile]; // same mobile → same ID
+            }
+            else {
+                const newId = "SRA-NTP-" + Math.floor(100000 + Math.random() * 900000);
+                users[mobile] = newId;
+                localStorage.setItem("users", JSON.stringify(users));
+                return newId;
+            }
+        }
+        // 🔥 password Generate Function
+        function setPassword(mobile) {
+            const users = JSON.parse(localStorage.getItem("users")) || {};
+
+            // 👉 अगर पहले से है तो वही password return
+            if (users[mobile] && users[mobile].password) {
+                return users[mobile].password;
+            }
+
+            // 🔥 password generate (mobile based)
+            let hash = 0;
+            for (let i = 0; i < mobile.length; i++) {
+                hash = (hash * 31) + mobile.charCodeAt(i);
+            }
+            const password = "NP-@-" + Math.abs(hash).toString().slice(0, 8);
+
+            // 👉 users object में save
+            if (!users[mobile]) {
+                users[mobile] = {};
+            }
+            users[mobile].password = password;
+            localStorage.setItem("users", JSON.stringify(users));
+            return password;
+        }
+
+    </script>
+</body>
+
+</html>

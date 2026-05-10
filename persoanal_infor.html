@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>application_07</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .head {
+            width: 100%;
+            height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            border-bottom: 3.5px solid lightgray;
+        }
+
+        .div_header {
+            height: 55px;
+            display: flex;
+            column-gap: 6px;
+            align-items: center;
+        }
+
+        .icon_div {
+            width: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            text-align: center;
+            padding: 3px 0;
+            border-radius: 6px;
+            background-color: #c3361d;
+        }
+
+        .logo_div {
+            width: 60px;
+            height: 40px;
+            background-image: url(https://thumbs.dreamstime.com/b/icp-logo-icp-letter-icp-letter-logo-design-initials-icp-logo-linked-circle-uppercase-monogram-logo-icp-typography-396227126.jpg);
+            background-size: 70px;
+            background-position: center;
+            border-radius: 20px;
+        }
+
+        .Image_div {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid lightgray;
+        }
+
+        .name_show {
+            margin-left: 4px;
+            height: max-content;
+            font-family: sans-serif, system-ui;
+        }
+
+        .Lo-out {
+            width: 45px;
+            height: 45px;
+            font-size: x-large;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: black;
+        }
+
+        main {
+            width: 100%;
+            height: 70%;
+            display: flex;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .infor_div {
+            width: 90%;
+            display: flex;
+            border-radius: 20px;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid aqua;
+        }
+
+        .mini_header {
+            width: 100%;
+            font-weight: 900;
+            font-size: 20px;
+            line-height: 1.8;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: fantasy;
+            background-color: aqua;
+            border-radius: 16px 16px 0 0;
+        }
+
+        footer {
+            width: 100%;
+            display: flex;
+            margin-top: 5px;
+            padding-bottom: 15px;
+            justify-content: center;
+        }
+
+        .footer_div {
+            width: 95%;
+            height: auto;
+            padding: 5px 0;
+            font-size: 16.5px;
+            text-align: center;
+            border-radius: 20px;
+            border: 2px solid darkgreen;
+            background-color: lightgreen;
+            font-family: math, system-ui, sans-serif;
+        }
+
+        .slide_Box {
+            width: 260px;
+            height: 91.3%;
+            top: 55px;
+            position: fixed;
+            left: -270px;
+            background: #fff;
+            border-radius: 0 15px 0 0;
+            box-shadow: 6px 0px 5px 0px rgba(0, 0, 0, 0.3);
+            transition: 0.4s;
+            z-index: 2;
+        }
+
+        .slide_Box.active {
+            left: 0;
+        }
+
+        .slide_div {
+            width: 100%;
+            display: flex;
+            margin-bottom: 5px;
+            align-items: center;
+            border-radius: 0 15px 0 0;
+            background-color: #c3361d;
+        }
+
+        .icon_Bx {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .text_div {
+            color: white;
+            line-height: 40px;
+            font-family: math;
+            margin-left: 10px;
+            font-size: 18px;
+            text-transform: math-auto;
+        }
+
+        .div_box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            row-gap: 10px;
+            flex-direction: column;
+            overflow-y: scroll;
+            padding: 8px 0;
+            overflow-x: hidden;
+            align-items: center;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="head">
+        <header>
+            <div class="div_header" style="width: 35%;">
+                <div class="icon_div" onclick="toggleBox()">
+                    <i class="fa-sharp fa-solid fa-bars" style="font-size: x-large;"></i>
+                </div>
+                <div class="logo_div"></div>
+            </div>
+            <!-- slide box code -->
+            <div class="slide_Box" id="SlBox">
+                <!-- number = 01 -->
+                <div class="slide_div">
+                    <div class="icon_Bx">
+                        <i class="fa-solid fa-house" style="color: white; margin-left: 5px;">
+                        </i>
+                    </div>
+                    <a href="welcome_page.html" style="text-decoration: none;">
+                        <div class="text_div">Dashboard</div>
+                    </a>
+                </div>
+                <!-- number = 02 -->
+                <div class="slide_div" style="border-radius: 0;">
+                    <div class="icon_Bx">
+                        <i class="fa-solid fa-circle-user" style="color: white; margin-left: 5px;"></i>
+                    </div>
+                    <a href="persoanal_infor.html" style="text-decoration: none;">
+                        <div class="text_div">Personal Information</div>
+                    </a>
+                </div>
+                <!-- number = 03 -->
+                <div class="slide_div" style="border-radius: 0;">
+                    <div class="icon_Bx">
+                        <i class="fa-sharp fa-solid fa-arrow-rotate-right" style="margin-left: 5px; color: white;"></i>
+                    </div>
+                    <a href="update.html" style="text-decoration: none;">
+                        <div class="text_div">Update Information</div>
+                    </a>
+                </div>
+                <!-- number = 04 -->
+                <div class="slide_div" style="border-radius: 0;">
+                    <div class="icon_Bx">
+                        <i class="fa-solid fa-upload" style="margin-left: 5px; color: white;"></i>
+                    </div>
+                    <a href="upload.html" style="text-decoration: none;">
+                        <div class="text_div">Upload Information</div>
+                    </a>
+                </div>
+            </div>
+            <div class="div_header" style="width: 65%; justify-content: end; column-gap: 10px;">
+                <div class="Image_div" id="image_div">
+                    <img id="img_div" width="45px" height="45px" alt="No Image" style="border-radius: 50%;">
+                </div>
+                <!-- login Out icon -->
+                <a href="foram_format_login.html" style="text-decoration: none;">
+                    <div class="Lo-out">
+                        <i class="fa-solid fa-power-off" style="font-size: 25px; color: white;"></i>
+                    </div>
+                </a>
+            </div>
+        </header>
+        <main>
+            <div class="infor_div">
+                <div class="mini_header">Personal Information</div>
+                <div class="div_box">
+                    <!-- number = 01 [ name ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Applicant's Name
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; text-transform: uppercase; border-radius: 0 0 12px 12px; font-weight: 700;"
+                            id="name">No Found !</p>
+                    </div>
+                    <!-- number = 02 [mother name ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Mother's Name
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; text-transform: capitalize; border-radius: 0 0 12px 12px;"
+                            id="m_name">No Found !</p>
+                    </div>
+                    <!-- number = 03 [ father name ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Father's Name
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; text-transform: capitalize; border-radius: 0 0 12px 12px;"
+                            id="f_name">No Found !</p>
+                    </div>
+                    <!-- number = 04 [ mobile no ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Mobile No
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px; font-weight: 700;"
+                            id="mobile_no">No Found !</p>
+                    </div>
+                    <!-- number = 05 [date of birth ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Date Of Birth
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px;"
+                            id="DOB">No Found !</p>
+                    </div>
+                    <!-- number = 06 [ gender ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Gender
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px; text-transform: capitalize;"
+                            id="gender">No Found !</p>
+                    </div>
+                    <!-- number = 07 [ email address ]-->
+                    <div style="width: 84%; height: auto; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 2.5;">
+                            E-mail Address
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; display: flex; justify-content: center; align-items: center; border-radius: 0 0 12px 12px; word-break: break-all;"
+                            id="e_mail">No Found !</p>
+                    </div>
+                    <!-- number = 08 [ aadhaar no ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Aadhaar No
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px;"
+                            id="UID_aadhaar">No Found !</p>
+                    </div>
+                    <!-- number = 09 [ age ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Age
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px; font-weight: 700;"
+                            id="age">No Found !</p>
+                    </div>
+                    <!-- number = 10 [ address ] -->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Address
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px;"
+                            id="address">No Found !</p>
+                    </div>
+                    <!-- number = 11 [ stream ] -->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Stream
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px; text-transform: uppercase;"
+                            id="stream">No Found !</p>
+                    </div>
+                    <!-- number = 12 [ skills ] -->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Skills
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px; text-transform: uppercase; font-weight: 700;"
+                            id="skills">No Found !</p>
+                    </div>
+                    <!-- number = 13 [ school / college name ] -->
+                    <div
+                        style="width: 84%; height: auto; padding-bottom: 10px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 2.3;">
+                            School / College Name
+                        </p>
+                        <p style="width: 100%; height: 65%; display: flex; align-items: center; justify-content: center; background-color: #f5deb38a; line-height: 1.4; border-radius: 0 0 12px 12px; word-wrap: break-word;"
+                            id="s_c_name">No Found !</p>
+                    </div>
+                    <!-- number = 14 [ Roll No ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Roll No
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px; font-weight: 700;"
+                            id="r_no">No Found !</p>
+                    </div>
+                    <!-- number = 15 [ Roll code ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Roll Code
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px; font-weight: 700;"
+                            id="r_code">No Found !</p>
+                    </div>
+                    <!-- number = 16 [ class ]-->
+                    <div style="width: 84%; height: 60px; border-radius: 15px; border: 2px solid darkgreen;">
+                        <p
+                            style="width: 100%; height: 50%; border-radius: 12px 12px 0 0; background-color: aquamarine; text-align: center; line-height: 1.3;">
+                            Class
+                        </p>
+                        <p style="width: 100%; height: 50%; background-color: #f5deb38a; text-align: center; line-height: 1.4; border-radius: 0 0 12px 12px;"
+                            id="class">No Found !</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer_div">© Online Facilitation System for Students. All rights reserved @2018
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+    <script>
+        // top details show code.
+        const U_data = JSON.parse(localStorage.getItem("userdetails_filled"));
+        const Date_Of_Birth = U_data.dob;
+        const parts = Date_Of_Birth.split("-");
+        const dob_I = parts[2] + "-" + parts[1] + "-" + parts[0];
+        if (U_data) {
+            document.getElementById("img_div").src = U_data.image;
+            document.getElementById("name").innerText = U_data.name;
+            document.getElementById("gender").innerText = U_data.Gender;
+            document.getElementById("f_name").innerText = U_data.father;
+            document.getElementById("mobile_no").innerText = U_data.mobile;
+            document.getElementById("DOB").innerText = dob_I;
+            document.getElementById("m_name").innerText = U_data.mother;
+            document.getElementById("e_mail").innerText = U_data.email;
+            document.getElementById("r_no").innerText = U_data.roll_no;
+            document.getElementById("r_code").innerText = U_data.roll_code;
+            document.getElementById("UID_aadhaar").innerText = U_data.uidsno;
+            document.getElementById("age").innerText = U_data.age;
+            document.getElementById("s_c_name").innerText = U_data.sc_name;
+            document.getElementById("class").innerText = U_data.sk_class;
+            document.getElementById("stream").innerText = U_data.stream;
+            document.getElementById("skills").innerText = U_data.skills;
+            // document.getElementById("").innerText = U_data.address;
+
+        } else {
+            alert("No Data Found !\n❌( कोई भी जानकारी नहीं है। )\nPlease Check Your Information !\n( कृपया अपनी जानकारी जाँच करे। )");
+        }
+
+        function toggleBox() {
+            document.getElementById("SlBox").classList.toggle("active");
+        }
+    </script>
+</body>
+
+</html>
+
+<!--document.getElementById("name_div").innerText = U_data.name; -->
+<!-- <div class="name_show">
+<div class="wel_come">Welcome</div>
+<div id="name_div" class="Name_show"></div>
+</div> -->
